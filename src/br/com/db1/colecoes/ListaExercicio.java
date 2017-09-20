@@ -2,13 +2,13 @@ package br.com.db1.colecoes;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 public class ListaExercicio {
 	List<String> vogais = new ArrayList<>();
 	List<String> consoantes = new ArrayList<>();
-	List<Integer> valor = new ArrayList<>();
 
 	public ListaExercicio(){
 		vogais.add("a");
@@ -64,17 +64,6 @@ public class ListaExercicio {
 		consoantes.add("Y");
 		consoantes.add("z");
 		consoantes.add("Z");
-		
-		valor.add(1);
-		valor.add(2);
-		valor.add(3);
-		valor.add(4);
-		valor.add(5);
-		valor.add(6);
-		valor.add(7);
-		valor.add(8);
-		valor.add(9);
-		valor.add(10);
 	}
 
 	public Set<String> getVogais(String nomeParametro) {
@@ -106,9 +95,36 @@ public class ListaExercicio {
 		return consoantesEncontradas;
 	}
 
-	public Set<Integer> DezValoresNumericosRemoveTerceiraPosicao(Integer valores) {
-		valor.remove(3);
-		return null;
-
+	public List<Integer> removeTerceiraPosicao(List<Integer> valores) {
+		valores.remove(2);
+		return valores;
 	}
+
+	public List<Integer> multiplosTres(List<Integer> valores) {
+		List<Integer> valoresMultiplosTres = new ArrayList<>();
+		Iterator<Integer> it = valores.iterator();
+		while(it.hasNext()) {
+			Integer valor = it.next();
+			
+			if(valor > 0 && valor % 3 == 0) {
+				valoresMultiplosTres.add(valor);
+			}
+		}
+		return valoresMultiplosTres;
+	}
+
+	public List<Integer> multiplosDois(List<Integer> valores) {
+		List<Integer> valoresMultiplosDois = new ArrayList<>();
+		Iterator<Integer> it = valores.iterator();
+		while(it.hasNext()) {
+			Integer valor = it.next();
+			
+			if(valor > 0 && valor % 2 == 0) {
+				valoresMultiplosDois.add(valor);
+			}
+		}
+		return valoresMultiplosDois;
+	}
+
+	
 }
